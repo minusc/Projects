@@ -18,6 +18,7 @@ void printTable(char t[])
 
 int computerTurn( char t[])
 {
+	srand (time(NULL));	
 	int iRand = (rand() % 9) + 1;
 	bool foundUniqueIndex = 0;
 	while(foundUniqueIndex == 0)
@@ -255,11 +256,12 @@ int main()
 			if (n>=2)
 				verifyTable(t, noOneWon, whoStarts);
 
-			
-			cout<<"Please choose a location, using the table from the right."<<endl;
-			cin>>userInput;
-			
+			if (noOneWon==1)
+			{
+				cout<<"Please choose a location, using the table from the right."<<endl;
+				cin>>userInput;
 			t[userInput-1] ='O';
+			}
 
 		// show the table after the user inputs
 			printTable(t);
